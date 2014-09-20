@@ -145,6 +145,9 @@ gg1 <- ggplot(secede_m, aes(x=council, y=value, fill=factor(variable)))
 gg1 <- gg1 + geom_bar(stat="identity", position="fill")
 gg1 <- gg1 + scale_fill_manual(values=rev(unique(secede$color)),
                              labels=c("Yes", "No"), name="Secede?")
+gg1 <- gg1 + geom_hline(yintercept=0.50, color="gray80")
+gg1 <- gg1 + geom_text(aes(label=percent(yes/100)), y=0.08, color="white", size=3)
+gg1 <- gg1 + geom_text(aes(label=percent(no/100)), y=0.92, color="white", size=3)
 gg1 <- gg1 + coord_flip()
 gg1 <- gg1 + labs(x="", y="")
 gg1 <- gg1 + theme_bw()
@@ -153,6 +156,7 @@ gg1 <- gg1 + theme(legend.position="top")
 gg1 <- gg1 + theme(panel.border=element_blank())
 gg1 <- gg1 + theme(axis.ticks=element_blank())
 gg1 <- gg1 + theme(axis.text.x=element_blank())
+gg1
 
 vote <- arrangeGrob(gg1, gg, ncol=2,
                      main=textGrob("Scotland Votes", gp=gpar(fontsize=20)))
