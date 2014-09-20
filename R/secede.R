@@ -134,12 +134,12 @@ secede_m <- secede %>%
 
 # get things sorted to the bars display properly
 
-  secede_m <- merge(secede_m, secede, by="council")
-  secede_m$variable <- factor(secede_m$variable,
-                              levels=c("yes", "no"), ordered=TRUE)
-  secede_m <- secede_m %>% arrange(no, variable)
-  secede_m$council <- factor(secede_m$council,
-                             unique(secede_m$council), ordered=TRUE)
+secede_m <- merge(secede_m, secede, by="council")
+secede_m$variable <- factor(secede_m$variable,
+                            levels=c("yes", "no"), ordered=TRUE)
+secede_m <- secede_m %>% arrange(no, variable)
+secede_m$council <- factor(secede_m$council,
+                           unique(secede_m$council), ordered=TRUE)
 
 gg1 <- ggplot(secede_m, aes(x=council, y=value, fill=factor(variable)))
 gg1 <- gg1 + geom_bar(stat="identity", position="fill")
