@@ -156,7 +156,6 @@ gg1 <- gg1 + theme(legend.position="top")
 gg1 <- gg1 + theme(panel.border=element_blank())
 gg1 <- gg1 + theme(axis.ticks=element_blank())
 gg1 <- gg1 + theme(axis.text.x=element_blank())
-gg1
 
 vote <- arrangeGrob(gg1, gg, ncol=2,
                      main=textGrob("Scotland Votes", gp=gpar(fontsize=20)))
